@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Transfer</title>
+
+
+<style>
+
+body 
+{
+font-family: Arial, Helvetica, sans-serif;
+}
+
+form 
+{
+border: 3px solid Black;
+    margin: auto;
+    
+     padding:10%;
+}
+
+input,select {
+  width: 90%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+ 
+}
+
+button 
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+    float: left;
+}
+
+button:hover 
+{
+  opacity: 0.8;
+}
+
+.container 
+{
+    margin: auto;
+  width: 40%;
+    padding-top: 0px;
+ 
+   
+    
+}
+
+ul 
+{
+    
+  list-style-type: none;
+  margin: 0;
+  padding:0 ;
+  overflow: hidden;
+  background-color: #333;
+   
+}
+
+li 
+{
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child 
+{
+  border-right: none;
+}
+
+li a 
+{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.active 
+{
+  background-color: #4CAF50;
+}
+    .reset{
+        background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+        float: right;
+    }
+    .reset:hover 
+{
+  opacity: 0.5;
+}
+    p{
+        margin-top: 0;
+        font-size: 12px;
+        color:firebrick;
+    }
+    
+    
+</style>
+</head>
+
+
+<body>
+<ul>
+<li><a class="active" >WIPRO BANK</a></li>
+<li style="float:right"><a href="/webproject/logoutprocess">Logout</a></li>
+</ul>
+<form action="/webproject/transferprocess" onsubmit="return Validate();" method="post">
+      <h2 style="text-align: center; color: blue; padding-bottom: 30px;  ">TRANSFER MONEY</h2>
+<div class="container">
+
+    <label for="psw"><b>From Account Type</b></label>
+    <select  name="factype" id="a">
+       
+        <option value="savings">savings</option>
+        <option value="current">current</option>
+        </select><br><br>
+    <label for="psw"><b>To Account Type</b></label>
+    <select  name="tactype" id="b">
+        <option value="current">current</option>
+        <option value="savings">savings</option>
+       
+        </select><br><br>
+    <label for="psw"><b>Amount</b></label>
+    <input type="number" placeholder="Enter Amount" name="tamt" id="c" required>
+    
+<p id="p1"> </p>
+   <br><br>
+   <center> 
+    <button type="submit">Transfer</button>
+    <button type="button" onclick="window.location.href ='menu.html'"style="background-color:red" class="reset">Cancel</button>
+    </center> 
+    </div>
+</form>
+    <script>
+function Validate()
+{
+    var y=document.getElementById("a").value;
+    var z=document.getElementById("b").value;
+    var x=document.getElementById("c").value;
+    if(y==z)
+        {
+            document.getElementById("p1").innerHTML="Select Different Account Types";
+            return false;
+        }
+    if(x>50000 )
+        {
+            document.getElementById("p1").innerHTML="Enter Maximum Amount Of 50000";
+            return false;
+        }
+else if(x%100==0 || x%500==0 || x%2000==0)
+{
+return true;
+}
+else if(x<100)
+{
+   document.getElementById("p1").innerHTML="Enter Minimum Amount Of 100";
+return false; 
+}
+    else{
+    document.getElementById("p1").innerHTML="Enter Multiples Of 100,200,500,2000";
+return false;
+
+}
+}
+        </script>
+</body>
+</html>

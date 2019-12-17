@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body 
+{
+font-family: Arial, Helvetica, sans-serif;
+}
+
+form 
+{
+
+border: 3px solid Black;
+    margin: auto;
+    
+     padding:10%;
+}
+
+input {
+  width: 90%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+ 
+}
+
+button 
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+    float: left;
+}
+
+button:hover 
+{
+  opacity: 0.8;
+}
+
+.container 
+{
+    margin: auto;
+  width: 40%;
+    padding-top: 0px;
+ 
+   
+    
+}
+
+ul 
+{
+    
+  list-style-type: none;
+  margin: 0;
+  padding:0 ;
+  overflow: hidden;
+  background-color: #333;
+   
+}
+
+li 
+{
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child 
+{
+  border-right: none;
+}
+
+li a 
+{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.active 
+{
+  background-color: #4CAF50;
+}
+    .reset{
+        background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+        float: right;
+    }
+    .reset:hover 
+{
+  opacity: 0.5;
+}
+    p{
+        margin-top: 0;
+        font-size: 12px;
+        color:firebrick;
+    }
+    
+
+</style>
+</head>
+
+<body>
+
+<ul>
+<li><a class="active" >WIPRO BANK</a></li>
+<li style="float:right"><a href="/webproject/logoutprocess">Logout</a></li>
+</ul>
+<form action="/webproject/pinchangeprocess" onsubmit="return Validate();" method="post">
+   <h2 style="text-align: center; color: blue; padding-bottom: 30px;  ">CHANGE PIN</h2>
+
+<div class="container">
+    <label ><b>Old Pin</b></label>
+    <input type="text" placeholder="Enter Pin Number" name="ps1" id="a" >
+
+    <label ><b>New Pin</b></label>
+    <input type="password" placeholder="Enter New Pin Number" name="ps2" id="b" >
+
+    <label ><b>Re-enter New Pin</b></label>
+    <input type="password" placeholder="Re-enter New Pin Number" name="ps3" id="c">
+ 
+ <p id="p1"> </p>
+   <br><br><br>
+   
+    <button type="submit">Submit</button>
+    <input type="reset" style="background-color:red" class="reset" value="Reset">
+</div>
+  
+</form>
+<script>
+function Validate()
+{
+var x=document.getElementById("a").value;
+var y=document.getElementById("b").value;
+var z=document.getElementById("c").value;
+
+    if(x.length==0 || y.length==0 || z.length==0)
+{
+document.getElementById("p1").innerHTML="Enter All Fields";
+return false;
+}   
+
+    else if(x.length!=4)
+{
+document.getElementById("p1").innerHTML="Enter Four Digits PIN";
+return false;
+}
+       else if(y.length!=4 || z.length!=4)
+{
+document.getElementById("p1").innerHTML="Enter Four Digits New PIN";
+return false;
+}
+
+    else if(y!=z)
+{
+  document.getElementById("p1").innerHTML="Password Not Matching";
+   return false;
+}
+else if(x==y)
+{
+  document.getElementById("p1").innerHTML="Password Already Exist";
+   return false;
+}
+    
+else
+return true;
+}
+</script>
+
+</body>
+</html>

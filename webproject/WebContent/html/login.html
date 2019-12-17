@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>wipro bank</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body 
+{
+font-family: Arial, Helvetica, sans-serif;
+}
+
+form 
+{
+border: 3px solid Black;
+    margin: auto;
+padding:10%;
+}
+
+input {
+  width: 90%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+ 
+}
+
+button 
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+    float: left;
+}
+
+button:hover 
+{
+  opacity: 0.8;
+}
+
+.container 
+{
+    margin: auto;
+  width: 40%;
+
+    padding-top: 0px;
+    
+}
+
+ul 
+{
+    
+  list-style-type: none;
+  margin: 0;
+  padding:0 ;
+  overflow: hidden;
+  background-color: #333;
+   
+}
+
+li 
+{
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child 
+{
+  border-right: none;
+}
+
+li a 
+{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.active 
+{
+  background-color: #4CAF50;
+}
+    .reset{
+        background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+        float: right;
+    }
+    .reset:hover 
+{
+  opacity: 0.5;
+}
+    p{
+        margin-top: 0;
+        font-size: 12px;
+        color:firebrick;
+    }
+</style>
+</head>
+
+<body>
+
+<ul>
+<li><a class="active" >WIPRO BANK</a></li>
+
+</ul>
+
+
+<form action="/webproject/loginprocess" onsubmit="return Validate();" method="post">
+<div class="container">
+    <label ><b>Card Number</b></label>
+    <input type="number" placeholder="Enter Card Number(last 5digit)" name="userid" id="a" required>
+	
+    <label><b>Pin Number</b></label>
+    <input type="password" placeholder="Enter Pin Number" name="pass" id="b" required>
+        <p id="p1"> </p><br><br>
+   
+   
+    <button type="submit">Login</button>
+    <input type="reset"  class="reset" value="Reset">
+        
+   
+</div>
+</form>
+</body>
+
+<script>
+function Validate()
+{
+var x=document.getElementById("a").value;
+var y=document.getElementById("b").value;
+if(x.length!=5)
+{
+document.getElementById("p1").innerHTML="Enter Five digits card number";
+return false;
+}
+else if(y.length!=4)
+{
+document.getElementById("p1").innerHTML="Enter Four digits pin";
+return false;
+}
+else
+return true;
+}
+</script>
+
+</html>
