@@ -2,7 +2,7 @@
 This project contains source code of atm project, just import as a Dynamic web project in eclipse and run on any version of tomcat server recommended(9.0).
 
 Frontend code is in basic HTML5,CSS3, Bootstrap and JSP and JavaScript validations.
-Backend is in Oracle Database & SQL,JDBC Concept and Servlet.
+Backend is in Oracle Database & SQL,JDBC Concept and Servlet. 
 
 
 TABLE on Oracle Database:-
